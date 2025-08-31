@@ -71,9 +71,9 @@ export const useCompanySettings = () => {
         .from('company_settings')
         .select('*')
         .limit(1)
-        .single();
+        .maybeSingle();
 
-      if (error && error.code !== 'PGRST116') throw error;
+      if (error) throw error;
       setSettings(data || null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch company settings');
