@@ -145,9 +145,9 @@ export const useUserPreferences = () => {
         .from('user_preferences')
         .select('*')
         .eq('user_id', user.id)
-        .single();
+        .maybeSingle();
 
-      if (error && error.code !== 'PGRST116') throw error;
+      if (error) throw error;
       setPreferences(data ? data as UserPreference : null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch preferences');
@@ -216,9 +216,9 @@ export const useNotificationSettings = () => {
         .from('notification_settings')
         .select('*')
         .eq('user_id', user.id)
-        .single();
+        .maybeSingle();
 
-      if (error && error.code !== 'PGRST116') throw error;
+      if (error) throw error;
       setSettings(data || null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch notification settings');

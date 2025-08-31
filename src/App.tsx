@@ -13,6 +13,7 @@ import CustomerDetail from "./pages/CustomerDetail";
 import Products from "./pages/Products";
 import Sources from "./pages/Sources";
 import Divisions from "./pages/Divisions";
+import Followups from "./pages/Followups";
 import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 import Auth from "./pages/Auth";
@@ -54,6 +55,11 @@ const App = () => (
                 <Route path="/sources" element={
                   <ProtectedRoute>
                     <Sources />
+                  </ProtectedRoute>
+                } />
+                <Route path="/followups" element={
+                  <ProtectedRoute>
+                    <Followups />
                   </ProtectedRoute>
                 } />
                 <Route path="/divisions" element={
